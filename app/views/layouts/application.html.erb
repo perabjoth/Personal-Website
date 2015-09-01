@@ -104,28 +104,6 @@ setTimeout(function(){e.style.color=''},200)
 </script>
 <%= csrf_meta_tags %>
   <script>
-var ua= window.navigator.userAgent;
-
-
-var msie= ua.indexOf('MSIE ');
-    if (msie > 0) {
-// IE 10 or older=> return version number
-alert("You are using Internet Explorer\n   Version: "+parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10)+"\nPlease get a useful browser\nbecause my website will not\ndisplay properly");
-    }
-
-var trident= ua.indexOf('Trident/');
-    if (trident > 0) {
-// IE 11=> return version number
-var rv= ua.indexOf('rv:');
-alert("You are using Internet Explorer\n Version: "+parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10)+"\nPlease get a useful browser\nbecause my website will not\ndisplay properly");
-    }
-
-var edge= ua.indexOf('Edge/');
-    if (edge > 0) {
-// IE 12=> return version number
-alert("You are using Internet Explorer\n Version: "+parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10)+"\nPlease get a useful browser\nbecause my website will not\ndisplay properly");
-    }
-    
 $(document).ready(function() {
 
        $('#flashable').fadeOut(3000);
