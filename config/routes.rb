@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   resources :about_me
   resources :contact_me
   # The priority is based upon order of creation: first created -> highest priority.
