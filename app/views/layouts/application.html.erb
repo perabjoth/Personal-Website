@@ -1,7 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html style="width: 100%; height: 100%;">
+
 <head>
-  <title>HelloApp</title>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+          <title>Perabjoth</title>
+          <style>
+#flashable{
+        top:50%;
+        left:35%
+}
+mark {
+    background-color:black;
+    color: #060;
+}
+nav.navbar.navbar-default{
+background-color: #000000;
+}
+.container-fluid{
+        background-color: #000000;
+        color: #000000;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: #060;
+    color: #FFFFFF;
+}
+.navbar-default .navbar-nav > li > a{
+color: #060;
+}
+a:link, a:visited {
+color: #FFFFFF;
+background-color: #000000
+}
+table{
+position: absolute;
+z-index: -1;
+}
+div{
+position: absolute;
+z-index: 1;
+}
+body{
+width: 100%; 
+height: 100%;  
+background-color:#000000;
+}
+</style>
+<script type="text/javascript">
+var rows = 48;
+window.onload=function(){
+    var tbl=document.createElement('table'),
+    body=document.body;
+    body.style.backgroundColor='#000';
+    body.style.color='#060';
+    body.style.fontFamily='Lucida Console';
+
+    for(var i = 0; i <=rows ; i++){
+        var tr = tbl.insertRow();
+        for(var j = 0; j <= 50; j++){
+            var td = tr.insertCell();
+            td.style.width="2%";
+        }
+    }
+    body.appendChild(tbl);
+    if(window.location.href == "http://perabjoth.co.nf/"){
+            setTimeout(function(){
+            setInterval(function(){
+                rain(Math.floor((Math.random()*50)),0)
+            },10);
+        },3000);
+    }
+    else{
+            setInterval(function(){
+                rain(Math.floor((Math.random()*50)),0)
+            },10);
+    }
+}
+
+function rain(n,i) {          
+   setTimeout(function (){
+      var e=document.getElementsByTagName('tr')[i].childNodes[n];
+      e.style.color='#fff';
+      e.innerHTML = '&#'+Math.floor((Math.random()*127)+1)+';';
+      setTimeout(function(){e.style.color=''},200)
+
+      if (i++ < rows) rain(n,i);
+   },20);
+}
+</script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
