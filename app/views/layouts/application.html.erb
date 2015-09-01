@@ -77,18 +77,18 @@ td.style.width="2%";
         }
     }
     body.appendChild(tbl);
-if(window.location.href== "http://perabjoth.herokuapp.com/"){
+<% if session[:token].nil? %>
             setTimeout(function(){
             setInterval(function(){
                 rain(Math.floor((Math.random()*50)),0)
             },10);
         },3000);
-    }
-    else{
+    <% else %>
+    
             setInterval(function(){
                 rain(Math.floor((Math.random()*50)),0)
             },10);
-    }
+    <% end %>
 }
 
 function rain(n,i) {          
