@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'welcome/new'
-
-  get 'welcome/create'
-
+  resources :about_me
+  resources :contact_me
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
