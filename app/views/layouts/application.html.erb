@@ -135,10 +135,14 @@ $(document).ready(function() {
 </nav>
 </div>
 <% if current_page?(root_path) %>
-<div id="flashable" align="center"><h1><mark>Welcome to the matrix</mark></h1></div>
 <% end %>
 <%= yield %>
 
+<% if !session[:token].nil? %>
+<% else %>
+<% session[:token] = -1 %>
+<div id="flashable" align="center"><h1><mark>Welcome to the matrix</mark></h1></div>
+<% end %>
 </body>
 </html>
 
