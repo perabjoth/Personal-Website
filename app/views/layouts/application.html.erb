@@ -15,26 +15,26 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-          <title>Perabjoth</title>
-          <style>
+
+<title>Perabjoth</title>
+<style>
 #flashable{
-top:50%;
+	top:50%;
 left:35%
 }
 mark {
-background-color:black;
+	background-color:black;
 color: #060;
 }
 nav.navbar.navbar-default{
-background-color: #000000;
+	background-color: #000000;
 }
 .container-fluid{
-background-color: #000000;
+	background-color: #000000;
 color: #000000;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-background-color: #060;
+	background-color: #060;
 color: #FFFFFF;
 }
 .navbar-default .navbar-nav > li > a{
@@ -42,73 +42,78 @@ color: #060;
 }
 a:link, a:visited {
 color: #FFFFFF;
-background-color: #000000
-}
+       background-color: #000000
+  }
 table{
 position: absolute;
-z-index: -1;
+	  z-index: -1;
 }
 div{
 position: absolute;
-z-index: 1;
+	  z-index: 1;
 }
 body{
 width: 100%; 
 height: 100%;  
-background-color:#000000;
+	background-color:#000000;
 }
 </style>
 <script type="text/javascript">
 var rows= 48;
 window.onload=function(){
-var tbl=document.createElement('table');
-console.log(tbl);
-console.log('potato');
-var body=document.body;
-body.style.backgroundColor='#000';
-body.style.color='#060';
-body.style.fontFamily='Lucida Console';
+	var tbl=document.createElement('table');
+	console.log(tbl);
+	console.log('potato');
+	var body=document.body;
+	body.style.backgroundColor='#000';
+	body.style.color='#060';
+	body.style.fontFamily='Lucida Console';
 
-for(var i= 0; i <=rows ; i++){
-var tr= tbl.insertRow();
-for(var j= 0; j <= 50; j++){
-var td= tr.insertCell();
-td.style.width="2%";
-        }
-    }
-    body.appendChild(tbl);
-<% if session[:token].nil? %>
-            setTimeout(function(){
-            setInterval(function(){
-                rain(Math.floor((Math.random()*50)),0)
-            },10);
-        },3000);
-    <% else %>
-    
-            setInterval(function(){
-                rain(Math.floor((Math.random()*50)),0)
-            },10);
-    <% end %>
+	for(var i= 0; i <=rows ; i++){
+		var tr= tbl.insertRow();
+		for(var j= 0; j <= 50; j++){
+			var td= tr.insertCell();
+			td.style.width="2%";
+		}
+	}
+	body.appendChild(tbl);
+	<% if session[:token].nil? %>
+		setTimeout(function(){
+				setInterval(function(){
+					rain(Math.floor((Math.random()*50)),0)
+					},10);
+				},3000);
+	<% else %>
+
+		setInterval(function(){
+				rain(Math.floor((Math.random()*50)),0)
+				},10);
+	<% end %>
 }
 
 function rain(n,i) {          
-   setTimeout(function (){
-var e=document.getElementsByTagName('tr')[i].childNodes[n];
-e.style.color='#fff';
-e.innerHTML= '&#'+Math.floor((Math.random()*127)+1)+';';
-setTimeout(function(){e.style.color=''},200)
+	setTimeout(function (){
+			var e=document.getElementsByTagName('tr')[i].childNodes[n];
+			e.style.color='#fff';
+			e.innerHTML= '&#'+Math.floor((Math.random()*127)+1)+';';
+			setTimeout(function(){e.style.color=''},200)
 
-      if (i++ < rows) rain(n,i);
-   },20);
+			if (i++ < rows) rain(n,i);
+			},20);
 }
 </script>
+<style>
+  table{
+    width: 100%;
+  }
+</style>
 <%= csrf_meta_tags %>
-  <script>
+<script>
 $(document).ready(function() {
 
-       $('#flashable').fadeOut(3000);
-       
-});
+		$('#flashable').fadeOut(3000);
+
+		});
 </script>
 </head>
 <body>
@@ -118,20 +123,20 @@ $(document).ready(function() {
 <div class="container-fluid">
 <div class="navbar-header">
 <%= link_to image_tag("https://graph.facebook.com/100001713019936/picture"), root_path %>
-    </div>
-  </div>
+</div>
+</div>
 <ul class="nav navbar-nav" style='position: relative; left: 6%;'>
 <li><a href="<%= root_path %>">Home</a></li>
 <li><a href="<%= about_me_index_path %>">About Me</a></li>
 <li><a href="<%= contact_me_index_path %>">Contact Me</a></li>
-  </ul>
+</ul>
 <ul class="nav navbar-nav pull-right">
 <li style="float: right;"><a href="https://www.facebook.com/Perabjothsinghbajwa" target="_blank"><img src="https://static.viewbook.com/images/social_icons/facebook_32.png"></a></li>
 <li style="float: right;"><a href="https://twitter.com/PerabjothSinghB" target="_blank"><img src="https://static.viewbook.com/images/social_icons/twitter_32.png"></a></li>
 <li style="float: right;"><a href="https://www.linkedin.com/pub/perabjoth-singh-bajwa/6a/71/830" target="_blank"><img src="https://static.viewbook.com/images/social_icons/linkedin_32.png"></a></li>
 <li style="float: right;"><a href="https://github.com/perabjoth" target="_blank"><img src="<%= asset_path('GitHub_Logo.png') %>" height=30></a></li>
-  </ul>
-  </div>
+</ul>
+</div>
 </nav>
 </div>
 <% if current_page?(root_path) %>
