@@ -11,63 +11,22 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" %>
+    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'application' %>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <title>Perabjoth</title>
-  <style>
-      #flashable {
-          top: 50%;
-          left: 35%
-      }
+  <%= csrf_meta_tags %>
+  
+  <script>
+      $(document).ready(function () {
 
-      mark {
-          background-color: black;
-          color: #060;
-      }
+          $('#flashable').fadeOut(3000);
 
-      nav.navbar.navbar-default {
-          background-color: #000000;
-      }
-
-      .container-fluid {
-          background-color: #000000;
-          color: #000000;
-      }
-
-      .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-          background-color: #060;
-          color: #FFFFFF;
-      }
-
-      .navbar-default .navbar-nav > li > a {
-          color: #060;
-      }
-
-      a:link, a:visited {
-          color: #FFFFFF;
-          background-color: #000000
-      }
-
-      table {
-          position: absolute;
-          z-index: -1;
-      }
-
-      div {
-          position: absolute;
-          z-index: 1;
-      }
-
-      body {
-          width: 100%;
-          height: 100%;
-          background-color: #000000;
-      }
-  </style>
-  <script type="text/javascript">
+      });
       var rows = 48;
       window.onload = function () {
           var tbl = document.createElement('table');
@@ -113,20 +72,7 @@
           }, 20);
       }
   </script>
-  <style>
-      table {
-          width: 100%;
-      }
-  </style>
-  <%= csrf_meta_tags %>
-  <script>
-      $(document).ready(function () {
-
-          $('#flashable').fadeOut(3000);
-
-      });
-  </script>
-</head>
+  </head>
 <body>
 <div style="width:80%; margin:0 auto;">
   <nav class="navbar navbar-default col-md-offset-1" style="border:none;">
@@ -138,6 +84,7 @@
       </div>
       <ul class="nav navbar-nav" style='position: relative; left: 6%;'>
         <li><a href="<%= root_path %>">Home</a></li>
+        <li><a href="<%= compressor_index_path %>">Compressors</a></li>
         <li><a href="<%= about_me_index_path %>">About Me</a></li>
         <li><a href="<%= contact_me_index_path %>">Contact Me</a></li>
       </ul>

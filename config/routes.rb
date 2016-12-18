@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'compressor/Binary'
+
   resources :projects
   resources :about_me
   resources :contact_me
+  resources :compressor
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
